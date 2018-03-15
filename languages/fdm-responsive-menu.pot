@@ -1,0 +1,200 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Slide Out Sidebar Menu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-15 18:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: admin/settings-register.php:359
+msgid ""
+"Adds a sidr class/ID to all elements within the menu for more customization."
+msgstr ""
+
+#: admin/settings-register.php:355
+msgid "Class/ID Renaming"
+msgstr ""
+
+#: admin/settings-register.php:228
+msgid "Custom Link 1"
+msgstr ""
+
+#: admin/settings-register.php:255
+msgid "Custom Link 2"
+msgstr ""
+
+#: admin/settings-register.php:282
+msgid "Custom Link 3"
+msgstr ""
+
+#: admin/settings-register.php:219
+msgid "Custom Link Icon 1"
+msgstr ""
+
+#: admin/settings-register.php:246
+msgid "Custom Link Icon 2"
+msgstr ""
+
+#: admin/settings-register.php:273
+msgid "Custom Link Icon 3"
+msgstr ""
+
+#: admin/settings-register.php:237
+msgid "Custom Link Text 1"
+msgstr ""
+
+#: admin/settings-register.php:264
+msgid "Custom Link Text 2"
+msgstr ""
+
+#: admin/settings-register.php:291
+msgid "Custom Link Text 3"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Customizable slide out sidebar navigation menu using sidr.js (https://www."
+"berriart.com/sidr/)."
+msgstr ""
+
+#: admin/settings-register.php:350
+msgid "Displace the body content on slide open."
+msgstr ""
+
+#: admin/settings-register.php:377
+msgid ""
+"Enter the break point that you want the menu to show (default is 768px)."
+msgstr ""
+
+#: admin/settings-register.php:386
+msgid "Enter the ID or Class of the main menu that needs to be hidden."
+msgstr ""
+
+#: admin/settings-register.php:364
+msgid "Font Awesome"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://flyingdonutmedia.com"
+msgstr ""
+
+#: admin/settings-register.php:138
+msgid "Icon 1"
+msgstr ""
+
+#: admin/settings-register.php:156
+msgid "Icon 2"
+msgstr ""
+
+#: admin/settings-register.php:174
+msgid "Icon 3"
+msgstr ""
+
+#: admin/settings-register.php:192
+msgid "Icon 4"
+msgstr ""
+
+#: admin/settings-register.php:147
+msgid "Icon Link 1"
+msgstr ""
+
+#: admin/settings-register.php:165
+msgid "Icon Link 2"
+msgstr ""
+
+#: admin/settings-register.php:183
+msgid "Icon Link 3"
+msgstr ""
+
+#: admin/settings-register.php:201
+msgid "Icon Link 4"
+msgstr ""
+
+#: admin/settings-register.php:327
+msgid "Icon Links Color"
+msgstr ""
+
+#: admin/settings-register.php:382
+msgid "ID or Class to Hide"
+msgstr ""
+
+#: admin/settings-register.php:368
+msgid "If icons are not showing correctly, try toggling Font Awesome."
+msgstr ""
+
+#. Author of the plugin
+msgid "Jason Wendel"
+msgstr ""
+
+#: admin/settings-register.php:106
+msgid "Leave blank to only use the menu Icon as the button."
+msgstr ""
+
+#: admin/settings-register.php:97
+msgid "Leave blank to only use the Menu Text as the button."
+msgstr ""
+
+#: fdm-responsive-menu.php:90
+msgid "Menu"
+msgstr ""
+
+#: admin/settings-register.php:309
+msgid "Menu Background Color"
+msgstr ""
+
+#: admin/settings-register.php:373
+msgid "Menu Break Point"
+msgstr ""
+
+#: admin/settings-register.php:301
+msgid "Menu Button Color"
+msgstr ""
+
+#: admin/settings-register.php:346
+msgid "Menu Displacement"
+msgstr ""
+
+#: admin/settings-register.php:93
+msgid "Menu Icon"
+msgstr ""
+
+#: admin/settings-register.php:318
+msgid "Menu Links Color"
+msgstr ""
+
+#: admin/settings-register.php:337
+msgid "Menu Position"
+msgstr ""
+
+#: admin/settings-register.php:102
+msgid "Menu Text"
+msgstr ""
+
+#: admin/settings-register.php:111
+msgid "Navigation Menu"
+msgstr ""
+
+#: admin/settings-register.php:214
+msgid "Optional Custom Links"
+msgstr ""
+
+#: admin/settings-register.php:120
+msgid "Site Logo"
+msgstr ""
+
+#. Name of the plugin
+msgid "Slide Out Sidebar Menu"
+msgstr ""
+
+#: admin/settings-register.php:341
+msgid "The position on screen where the menu is located."
+msgstr ""
