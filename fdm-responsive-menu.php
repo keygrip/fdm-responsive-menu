@@ -2,12 +2,12 @@
 /*
 Plugin Name: Slide Out Sidebar Menu
 Plugin URI:   https://flyingdonutmedia.com
-Description: Customizable slide out sidebar navigation menu using sidr.js (https://www.berriart.com/sidr/).
+Description: Customizable slide out sidebar navigation menu.
 Version: 1.0
 Author: Jason Wendel
 Author URI: https://flyingdonutmedia.com
-License:      GPL2
-License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+License: GPL-3.0
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: fdm-responsive-menu
 Domain Path:  /languages
 */

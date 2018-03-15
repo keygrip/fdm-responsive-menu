@@ -7,7 +7,8 @@ Tags: sidr, sidr menu, offside menu, side menu, slide out menu, mobile menu, res
 Requires at least: 3.5
 Tested up to: 4.9.4
 Stable tag: 1.0
-License: GPLv2
+License: GPL-3.0
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Slide Out Sidebar Menu
 
