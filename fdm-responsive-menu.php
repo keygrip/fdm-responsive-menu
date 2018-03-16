@@ -46,7 +46,7 @@ function fdm_responsive_menu_admin_scripts() {
 
 	wp_enqueue_style( 'fdm_responsive_menu_admin_styles', plugin_dir_url(  __FILE__  ) . 'admin/css/fdm-responsive-menu-admin.css', array(), null, 'screen' );
 
-	wp_enqueue_style( 'fontawesome-iconpicker_styles', plugin_dir_url(  __FILE__  ) . 'admin/css/fontawesome-iconpicker.css', array(), null, 'screen' );
+	wp_enqueue_style( 'fontawesome-iconpicker_styles', plugin_dir_url(  __FILE__  ) . 'admin/css/fontawesome-iconpicker.min.css', array(), null, 'screen' );
 
 	wp_enqueue_style( 'font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), null, 'screen' );
 
@@ -56,9 +56,11 @@ function fdm_responsive_menu_admin_scripts() {
 
 	wp_enqueue_media();
 
-	wp_enqueue_script( 'fontawesome-iconpicker_js', plugin_dir_url( __FILE__ ) . 'admin/js/fontawesome-iconpicker.js', array(), null, false );
+	wp_enqueue_script( 'clipboard_js', plugin_dir_url( __FILE__ ) . 'admin/js/clipboard.min.js', array(), null, false );
 
-	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.js', array(), null, true );
+	wp_enqueue_script( 'fontawesome-iconpicker_js', plugin_dir_url( __FILE__ ) . 'admin/js/fontawesome-iconpicker.min.js', array(), null, false );
+
+	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.min.js', array(), null, true );
 }
 add_action( 'admin_enqueue_scripts', 'fdm_responsive_menu_admin_scripts' );
 

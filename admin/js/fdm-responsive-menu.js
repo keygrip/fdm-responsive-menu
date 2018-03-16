@@ -69,4 +69,20 @@ jQuery(document).ready(function($){
     // Color Picker
     $('.fdm-menu-color-field').wpColorPicker();
 
+    // Copy Shortcode to Clipboard using clipboard.js
+    var clipboard = new ClipboardJS('.copy-shortcode'),
+        copyComplete = $('#copy-complete');
+    copyComplete.hide();
+
+    clipboard.on('success', function(e) {
+        copyComplete.fadeIn().delay( 1500 ).fadeOut();
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+        //console.error('Action:', e.action);
+        //console.error('Trigger:', e.trigger);
+    });
+
+
 });
