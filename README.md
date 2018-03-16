@@ -22,7 +22,7 @@ Please feel free to suggest improvements and/or report conflicts.
 
 ## Credits
 
-- Thanks to Alberto Varela for[SIDR jQuery plugin](https://www.berriart.com/sidr/).
-- Thanks to[Font Awesome](https://fontawesome.com).
-- Thanks to José Victor and Javi Aguilar for[Font Awesome Icon Picker](https://github.com/farbelous/fontawesome-iconpicker).
-- Thanks to Leaf for[scssphp compiler for scss](https://github.com/leafo/scssphp).
+- Thanks to Alberto Varela for [SIDR jQuery plugin](https://www.berriart.com/sidr/).
+- Thanks to [Font Awesome](https://fontawesome.com).
+- Thanks to José Victor and Javi Aguilar for [Font Awesome Icon Picker](https://github.com/farbelous/fontawesome-iconpicker).
+- Thanks to Leaf for [scssphp compiler for scss](https://github.com/leafo/scssphp).
