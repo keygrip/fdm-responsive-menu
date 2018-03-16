@@ -33,6 +33,7 @@
     @include font-size(20px);
   }
   .mobile-logo{
+    text-align: center;
     img{
       padding: 10px;
     }
@@ -48,12 +49,15 @@
   }
   .expand{
     a{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       .open-menu{
         //content: '\f0d7';
         //font-family: fontawesome;
         display: inline-block;
-        padding: 0 65% 0 0px;
-        margin-left: 25px;
+        margin-right: auto;
+        width: 100%;
 
       }
     }
