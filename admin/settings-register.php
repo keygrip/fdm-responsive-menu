@@ -52,7 +52,7 @@ add_settings_section(
 // Add Display Options
 	add_settings_section(
 		'fdm_responsive_menu_section_admin',
-		'SIDR Responsive Menu Display Options',
+		'Slide Out Sidebar Menu Display Options',
 		'fdm_responsive_menu_callback_section_admin',
 		'fdm-mobile-menu'
 	);
@@ -60,7 +60,7 @@ add_settings_section(
 // Add Settings Options
 	add_settings_section(
 		'fdm_responsive_menu_section_settings',
-		'SIDR Responsive Menu Settings',
+		'Slide Out Sidebar Menu Settings',
 		'fdm_responsive_menu_callback_section_settings',
 		'fdm-mobile-menu-settings'
 	);
@@ -68,7 +68,7 @@ add_settings_section(
 // Add Style Options
 	add_settings_section(
 		'fdm_responsive_menu_section_styles',
-		'SIDR Responsive Menu Styles',
+		'Slide Out Sidebar Menu Styles',
 		'fdm_responsive_menu_callback_section_styles',
 		'fdm-mobile-menu-styles'
 	);
