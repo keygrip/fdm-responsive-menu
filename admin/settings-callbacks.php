@@ -9,7 +9,7 @@ if (! defined( 'ABSPATH' ) ){
 function fdm_responsive_menu_callback_section_admin() {
 
 	echo '<p>Choose which navigation menu to use below.  All other settings are optional.</p>';
-
+	echo '<p style="font-size: 14px;"><strong>Shortcode: </strong><input id="shortcode" value="[fdm-sidebar-menu]"/> <button class="copy-shortcode" data-clipboard-target="#shortcode" type="button"><i class="fa fa-copy"></i></button>  <span id="copy-complete" style="color: green; display: none;"><i class="fa fa-check-circle"></i> Shortcode Copied!</span></p>';
 }
 
 // callback: styles section
