@@ -83,6 +83,14 @@ require_once plugin_dir_path( __FILE__ ) . 'assets/scssphp/scss.inc.php';
 use Leafo\ScssPhp\Compiler;
 $scss = new Compiler();
 
+// Add settings link to plugin on plugins page
+function add_action_links ( $links ) {
+	$settingsLink = array(
+		'<a href="' . admin_url( 'themes.php?page=fdm-mobile-menu' ) . '">Settings</a>',
+	);
+	return array_merge( $links, $settingsLink );
+}
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links' );
 
 // default plugin options
 function fdm_responsive_menu_options_default() {
