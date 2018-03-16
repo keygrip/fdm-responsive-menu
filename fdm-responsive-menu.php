@@ -91,7 +91,7 @@ function fdm_responsive_menu_options_default() {
 		'menu_position'         => 'right',
 		'menu_displacement'     => false,
         'nav_menu'              => 'default',
-		'fontawesome'           => true,
+		'fontawesome'           => false,
 		'site_logo'             => '',
 		'social_icon_1'         => '',
 		'social_icon_link_1'    => '',
