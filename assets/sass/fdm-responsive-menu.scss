@@ -4,7 +4,6 @@
 #mobile-navigation {
   display: none;
 }
-
 #mobile-header {
   display: block;
   @include font-size(25px);
@@ -45,6 +44,13 @@
     justify-content: space-evenly;
     .icon{
       @include font-size(20px);
+    }
+  }
+  .custom-icon{
+    a{
+      .fa{
+        padding-right: 10px;
+      }
     }
   }
   .expand{

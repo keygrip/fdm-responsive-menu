@@ -89,53 +89,60 @@ function fdm_responsive_menu_validate_options($input) {
 	}
 
 	// Icon 1 Link
-	if ( isset( $input['social_icon_1_link'] ) ) {
+	if ( isset( $input['social_icon_link_1'] ) ) {
 
-		$input['social_icon_1_link'] = esc_url( $input['social_icon_1_link'] );
-
-	}
-
-	// Icon 2
-	if ( isset( $input['social_icon_2'] ) ) {
-
-		$input['social_icon_2'] = sanitize_text_field( $input['social_icon_2'] );
+		$input['social_icon_link_1'] = esc_url( $input['social_icon_link_1'] );
 
 	}
 
-	// Icon 2 Link
-	if ( isset( $input['social_icon_2_link'] ) ) {
+//	// Icon 1 Link
+//	if ( isset( $input['social_icon_1_link'] ) ) {
+//
+//		$input['social_icon_1_link'] = esc_url( $input['social_icon_1_link'] );
+//
+//	}
 
-		$input['social_icon_2_link'] = esc_url( $input['social_icon_2_link'] );
-
-	}
-
-	// Icon 3
-	if ( isset( $input['social_icon_3'] ) ) {
-
-		$input['social_icon_3'] = sanitize_text_field( $input['social_icon_3'] );
-
-	}
-
-	// Icon 3 Link
-	if ( isset( $input['social_icon_3_link'] ) ) {
-
-		$input['social_icon_3_link'] = esc_url( $input['social_icon_3_link'] );
-
-	}
-
-	// Icon 4
-	if ( isset( $input['social_icon_4'] ) ) {
-
-		$input['social_icon_4'] = sanitize_text_field( $input['social_icon_4'] );
-
-	}
-
-	// Icon 4 Link
-	if ( isset( $input['social_icon_4_link'] ) ) {
-
-		$input['social_icon_4_link'] = esc_url( $input['social_icon_4_link'] );
-
-	}
+//	// Icon 2
+//	if ( isset( $input['social_icon_2'] ) ) {
+//
+//		$input['social_icon_2'] = sanitize_text_field( $input['social_icon_2'] );
+//
+//	}
+//
+//	// Icon 2 Link
+//	if ( isset( $input['social_icon_2_link'] ) ) {
+//
+//		$input['social_icon_2_link'] = esc_url( $input['social_icon_2_link'] );
+//
+//	}
+//
+//	// Icon 3
+//	if ( isset( $input['social_icon_3'] ) ) {
+//
+//		$input['social_icon_3'] = sanitize_text_field( $input['social_icon_3'] );
+//
+//	}
+//
+//	// Icon 3 Link
+//	if ( isset( $input['social_icon_3_link'] ) ) {
+//
+//		$input['social_icon_3_link'] = esc_url( $input['social_icon_3_link'] );
+//
+//	}
+//
+//	// Icon 4
+//	if ( isset( $input['social_icon_4'] ) ) {
+//
+//		$input['social_icon_4'] = sanitize_text_field( $input['social_icon_4'] );
+//
+//	}
+//
+//	// Icon 4 Link
+//	if ( isset( $input['social_icon_4_link'] ) ) {
+//
+//		$input['social_icon_4_link'] = esc_url( $input['social_icon_4_link'] );
+//
+//	}
 
 	// Custom Link Icon 1
 	if ( isset( $input['custom_link_icon_1'] ) ) {

@@ -85,4 +85,94 @@ jQuery(document).ready(function($){
     });
 
 
+
+    // Add Social Icon Repeater
+    $('.add-social-icon-row').on('click', function (e) {
+
+        e.preventDefault();
+        var $spanEl = $('.fdm-social-icon:last');
+        var $spanElID = $spanEl.attr('id');
+        var split_id = $spanElID.split('_');
+        var nextindex = Number(split_id[1]) + 1;
+        var $klonEl = $spanEl.clone();
+
+        $klonEl.prop('id', 'social-icon-row_'+nextindex );
+
+        var $inputEl = $klonEl.find('input');
+        var $iconEl = $klonEl.find('.input-group-addon');
+        var $fa = $klonEl.find('i');
+
+        $inputEl.val('');
+        $fa.prop('class', 'fa');
+        $inputEl.prop('id', 'social-icon-input_'+nextindex ).prop('class', 'form-control icp icp-auto iconpicker-element iconpicker-input').prop('name', 'fdm_responsive_menu_options[fdm_social_icon_'+nextindex+']' );
+        var $linkEl = $klonEl.find('input[type=url]');
+        $linkEl.val('');
+        $linkEl.prop('id', 'social-icon-link_'+nextindex ).prop('class', 'link-input link-input-'+nextindex ).prop('name', 'fdm_responsive_menu_options[fdm_social_link_'+nextindex+']' );
+
+        var $removeEl = '<button id="fdm-remove-row-'+nextindex+'" class="fdm-remove-row" type="button">-</button>';
+
+        if(nextindex === 2){
+            $spanEl.after($klonEl);
+            $linkEl.after($removeEl);
+        } else {
+            $spanEl.after($klonEl);
+        }
+
+        $('.icp-auto').iconpicker();
+
+    });
+
+    // Add Custom Icon Repeater
+    $('.add-custom-link-row').on('click', function (e) {
+
+        e.preventDefault();
+        var $spanEl = $('.fdm-custom-icon-link:last');
+        var $spanElID = $spanEl.attr('id');
+        var split_id = $spanElID.split('_');
+        var nextindex = Number(split_id[1]) + 1;
+        var $klonEl = $spanEl.clone();
+
+        $klonEl.prop('id', 'custom-icon-row_'+nextindex );
+
+        var $inputEl = $klonEl.find('.choose-icon');
+        var $iconEl = $klonEl.find('.input-group-addon');
+        var $customLinkInputEl = $klonEl.find('.custom-link-input');
+        var $customTextInputEl = $klonEl.find('.custom-icon-link-text');
+        var $fa = $klonEl.find('i');
+
+
+        $inputEl.val('');
+        $customLinkInputEl.val('');
+        $customTextInputEl.val('');
+
+        $fa.prop('class', 'fa');
+        $inputEl.prop('id', 'custom-icon-input_'+nextindex ).prop('class', 'form-control icp icp-auto iconpicker-element iconpicker-input').prop('name', 'fdm_responsive_menu_options[fdm_custom_link_icon_'+nextindex+']' );
+
+        $customLinkInputEl.prop('id', 'custom-icon-link_'+nextindex ).prop('class', 'custom-link-input custom-link-input-'+nextindex ).prop('name', 'fdm_responsive_menu_options[fdm_custom_link_'+nextindex+']' );
+
+        $customTextInputEl.prop('id', 'custom-icon-link-text_'+nextindex).prop('class', 'custom-icon-link-text custom-icon-link-text-'+nextindex).prop('name', 'fdm_responsive_menu_options[fdm_custom_link_text_'+nextindex+']' );
+
+
+        var $removeEl = '<button id="fdm-remove-row-'+nextindex+'" class="fdm-remove-row" type="button">-</button>';
+
+        if(nextindex === 2){
+            $spanEl.after($klonEl);
+            $customTextInputEl.after($removeEl);
+        } else {
+            $spanEl.after($klonEl);
+        }
+
+        $('.icp-auto').iconpicker();
+
+        //console.log($customTextInputEl);
+
+    });
+    //Remove Repeating Row
+    $('.fdm_responsive_menu_rows').on('click', '.fdm-remove-row', function (e) {
+        e.preventDefault();
+        $(this).parent().remove();
+        $(this).remove();
+        //console.log($(this).parent().innerHTML);
+
+    });
 });

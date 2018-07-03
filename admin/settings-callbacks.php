@@ -35,8 +35,8 @@ function fdm_responsive_menu_callback_menu_button_icon( $args ) {
 
 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
 
-	echo '<div class="input-group choose-icon">
-        	<input name="fdm_responsive_menu_options['. $id .']" data-placement="bottomRight" class="form-control icp icp-auto" value="'.$value.'" type="text" />
+	echo '<div class="fdm-group">
+        	<input name="fdm_responsive_menu_options['. $id .']" data-placement="bottomRight" class="form-control icp icp-auto input-group choose-icon" value="'.$value.'" type="text" />
             <span class="input-group-addon"></span>
         </div>
         ';
@@ -241,38 +241,70 @@ function fdm_responsive_menu_callback_admin_message( $args ) {
 
 // callback: social icon
 function fdm_responsive_menu_callback_icon( $args ) {
-	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+
+	$options = get_option( 'fdm_responsive_menu_options' );
+	$i = 1;
 
 	$id    = isset( $args['id'] )    ? $args['id']    : '';
 	$label = isset( $args['label'] ) ? $args['label'] : '';
 
 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
 
-	echo '<div class="input-group choose-icon">
-        	<input name="fdm_responsive_menu_options['. $id .']" data-placement="bottomRight" class="form-control icp icp-auto" value="'.$value.'" type="text" />
-            <span class="input-group-addon"></span>
-        </div>
-        ';
-	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
+	echo '<div class="fdm_responsive_menu_rows">';
+
+	if( ! empty( $options[ 'fdm_social_icon_1' ] ) ) {
+
+		foreach ($options as $text_input => $val ) {
+
+			if( substr( $text_input, 0, 16 ) == 'fdm_social_icon_'){
+
+				if ( $i >= 2 ) {
+					$removeButton = '<button id="fdm-remove-row-'.$i.'" class="fdm-remove-row" type="button">-</button>';
+				}
+
+				$output = '<div id="social-icon-row_'.$i.'" class="fdm-social-icon">';
+				$output .= '<input id="social-icon-input_'.$i.'" name="fdm_responsive_menu_options[fdm_social_icon_'. $i .']" data-placement="bottomRight" class="form-control icp icp-auto input-group choose-icon" value="'.$val.'" type="text" autocomplete="off" />';
+				$output .= '<span class="input-group-addon"></span>';
+				$output .= '<input type="url" id="social-icon-link_'.$i.'" class="link-input link-input-'.$i.'" name="fdm_responsive_menu_options[fdm_social_link_'.$i.']" value="' . $options['fdm_social_link_'.$i] . '" placeholder="https://" autocomplete="off" />';
+				$output .= $removeButton;
+				$output .= '<label for="fdm_responsive_menu_options_'. $i .'">'. $label .'</label>';
+				$output .= '</div>';
+				$i++;
+				echo $output;
+			}
+		}
+	} else {
+		$output = '<div id="social-icon-row_'.$i.'" class="fdm-social-icon">';
+		$output .= '<input id="social-icon-input_'.$i.'" name="fdm_responsive_menu_options[fdm_social_icon_'. $i .']" data-placement="bottomRight" class="form-control icp icp-auto input-group choose-icon" value="'.$val.'" type="text" autocomplete="off" />';
+		$output .= '<span class="input-group-addon"></span>';
+		$output .= '<input type="url" id="social-icon-link_'.$i.'" class="link-input link-input-'.$i.'" name="fdm_responsive_menu_options[fdm_social_link_'.$i.']" value="' . $options['fdm_social_link_'.$i] . '" placeholder="https://" autocomplete="off" />';
+		$output .= $removeButton;
+		$output .= '<label for="fdm_responsive_menu_options_'. $i .'">'. $label .'</label>';
+		$output .= '</div>';
+		echo $output;
+	}
+
+	echo "</div>";
+	echo '<button class="add-row add-social-icon-row">Add Row</button>';
 }
 
 // callback: social icon link
-function fdm_responsive_menu_callback_icon_link( $args ) {
-	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
-
-	$id    = isset( $args['id'] )    ? $args['id']    : '';
-	$label = isset( $args['label'] ) ? $args['label'] : '';
-
-	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
-
-	echo '
-        <div class="icon-link">
-        	<input name="fdm_responsive_menu_options['. $id .']" value="'.$value.'" type="text" placeholder="https://"/>
-		</div>
-		<hr/>
-        ';
-	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
-}
+//function fdm_responsive_menu_callback_icon_link( $args ) {
+//	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+//
+//	$id    = isset( $args['id'] )    ? $args['id']    : '';
+//	$label = isset( $args['label'] ) ? $args['label'] : '';
+//
+//	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+//
+//	echo '
+//        <div class="icon-link">
+//        	<input name="fdm_responsive_menu_options['. $id .']" value="'.$value.'" type="text" placeholder="https://"/>
+//		</div>
+//		<hr/>
+//        ';
+//	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
+//}
 
 // Optional links Message
 function fdm_responsive_menu_callback_links_message( $args ) {
@@ -289,52 +321,86 @@ function fdm_responsive_menu_callback_links_message( $args ) {
 
 // callback: Custom Link icon
 function fdm_responsive_menu_callback_custom_link_icon( $args ) {
-	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+	$options = get_option( 'fdm_responsive_menu_options' );
+	$i = 1;
 
 	$id    = isset( $args['id'] )    ? $args['id']    : '';
 	$label = isset( $args['label'] ) ? $args['label'] : '';
 
 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
 
-	echo '<div class="input-group choose-icon">
-        	<input name="fdm_responsive_menu_options['. $id .']" data-placement="bottomRight" class="form-control icp icp-auto" value="'.$value.'" type="text" />
-            <span class="input-group-addon"></span>
-        </div>
-        ';
-	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
+	echo '<div class="fdm_responsive_menu_rows">';
+
+	if( ! empty( $options[ 'fdm_custom_link_icon_1' ] ) ) {
+
+		foreach ($options as $option => $val ) {
+
+			if( substr( $option, 0, 21 ) == 'fdm_custom_link_icon_'){
+
+				if ( $i >= 2 ) {
+					$removeButton = '<button id="fdm-remove-row-'.$i.'" class="fdm-remove-row" type="button">-</button>';
+				}
+
+				$output = '<div id="custom-icon-row_'.$i.'" class="fdm-custom-icon-link">';
+				$output .= '<input type="text" id="custom-icon-input_'.$i.'" name="fdm_responsive_menu_options[fdm_custom_link_icon_'. $i .']" data-placement="bottomRight" class="form-control icp icp-auto input-group choose-icon" value="'.$val.'" autocomplete="off" />';
+				$output .= '<span class="input-group-addon"></span>';
+				$output .= '<input type="text" id="custom-icon-link_'.$i.'" class="custom-link-input custom-link-input-'.$i.'" name="fdm_responsive_menu_options[fdm_custom_link_'.$i.']" value="' . $options['fdm_custom_link_'.$i] . '" placeholder="https:// or mailto:" />';
+				$output .= '<input type="text" id="custom-icon-link-text_'. $i .'" class="custom-icon-link-text custom-icon-link-text-'. $i .'" name="fdm_responsive_menu_options[fdm_custom_link_text_'.$i.']" size="30" value="'. $options['fdm_custom_link_text_'.$i] .'">';
+				$output .= $removeButton;
+				$output .= '<label for="fdm_responsive_menu_options_'. $i .'">'. $label .'</label>';
+				$output .= '</div>';
+				$i++;
+				echo $output;
+			}
+		}
+	} else {
+		$output = '<div id="custom-icon-row_'.$i.'" class="fdm-custom-icon-link">';
+		$output .= '<input type="text" id="custom-icon-input_'.$i.'" name="fdm_responsive_menu_options[fdm_custom_link_icon_'. $i .']" data-placement="bottomRight" class="form-control icp icp-auto input-group choose-icon" value="'.$val.'" autocomplete="off" />';
+		$output .= '<span class="input-group-addon"></span>';
+		$output .= '<input type="text" id="custom-icon-link_'.$i.'" class="custom-link-input custom-link-input-'.$i.'" name="fdm_responsive_menu_options[fdm_custom_link_'.$i.']" value="' . $options['fdm_custom_link_'.$i] . '" placeholder="https:// or mailto:" />';
+		$output .= '<input type="text" id="custom-icon-link-text_'. $i .'" class="custom-icon-link-text custom-icon-link-text-'. $i .'" name="fdm_responsive_menu_options[fdm_custom_link_text_'.$i.']" size="30" value="'. $options['fdm_custom_link_text_'.$i] .'">';
+		//$output .= $removeButton;
+		$output .= '<label for="fdm_responsive_menu_options_'. $i .'">'. $label .'</label>';
+		$output .= '</div>';
+		echo $output;
+
+	}
+
+	echo "</div>";
+	echo '<button class="add-row add-custom-link-row">Add Row</button>';
 }
 
 // callback: Custom Link
-function fdm_responsive_menu_callback_custom_link( $args ) {
-	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
-
-	$id    = isset( $args['id'] )    ? $args['id']    : '';
-	$label = isset( $args['label'] ) ? $args['label'] : '';
-
-	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
-
-	echo '
-        <div class="icon-link">
-        	<input name="fdm_responsive_menu_options['. $id .']" value="'.$value.'" type="text"/>
-		</div>
-        ';
-	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
-}
+//function fdm_responsive_menu_callback_custom_link( $args ) {
+//	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+//
+//	$id    = isset( $args['id'] )    ? $args['id']    : '';
+//	$label = isset( $args['label'] ) ? $args['label'] : '';
+//
+//	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+//
+//	echo '
+//        <div class="icon-link">
+//        	<input name="fdm_responsive_menu_options['. $id .']" value="'.$value.'" type="text"/>
+//		</div>
+//        ';
+//	echo '<label for="fdm_responsive_menu_options_'. $id .'">'. $label .'</label>';
+//}
 
 // callback: Custom Link Text
-function fdm_responsive_menu_callback_custom_link_text( $args ) {
-	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
-
-	$id    = isset( $args['id'] )    ? $args['id']    : '';
-	$label = isset( $args['label'] ) ? $args['label'] : '';
-
-	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
-
-	echo '<input id="fdm_responsive_menu_options_'. $id .'" name="fdm_responsive_menu_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
-	echo '<label for="myplugin_options_'. $id .'">'. $label .'</label>';
-	echo '<hr/>';
-
-}
+//function fdm_responsive_menu_callback_custom_link_text( $args ) {
+//	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+//
+//	$id    = isset( $args['id'] )    ? $args['id']    : '';
+//	$label = isset( $args['label'] ) ? $args['label'] : '';
+//
+//	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+//
+//	echo '<input id="fdm_responsive_menu_options_'. $id .'" name="fdm_responsive_menu_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+//	echo '<label for="myplugin_options_'. $id .'">'. $label .'</label>';
+//	echo '<hr/>';
+//
+//}
 
 // callback: Menu Button Color
 function fdm_responsive_menu_callback_menu_button_color( $args ) {

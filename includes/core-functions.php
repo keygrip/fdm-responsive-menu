@@ -230,9 +230,9 @@ function fdm_responsive_menu_site_icon_links( $url ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
 
-	if ( isset( $options['social_icon_1_link'] ) && ! empty( $options['social_icon_1_link'] ) ) {
+	if ( isset( $options['social_icon_link_1'] ) && ! empty( $options['social_icon_link_1'] ) ) {
 
-		$url = esc_url( $options['social_icon_1_link'] );
+		$url = esc_url( $options['social_icon_link_1'] );
 
 	}
 

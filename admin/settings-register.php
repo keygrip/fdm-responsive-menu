@@ -134,76 +134,103 @@ add_settings_section(
 	);
 
 	add_settings_field(
-		'social_icon_1',
-		esc_html__('Icon 1', 'fdm-responsive-menu'),
+		'fdm_social_icon',
+		esc_html__('Icons', 'fdm-responsive-menu'),
 		'fdm_responsive_menu_callback_icon',
 		'fdm-mobile-menu',
 		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+		[ 'id' => 'social_icon', 'label' => esc_html__('', 'fdm-responsive-menu') ]
 	);
 
-	add_settings_field(
-		'social_icon_1_link',
-		esc_html__('Icon Link 1', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_1_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
+//	add_settings_field(
+//		'fdm_social_icon_link',
+//		esc_html__('Icon Link', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
 
-	add_settings_field(
-		'social_icon_2',
-		esc_html__('Icon 2', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
+//	add_settings_field(
+//		'fdm_social_icon_link',
+//		esc_html__('Icon Link 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_1_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
 
-	add_settings_field(
-		'social_icon_2_link',
-		esc_html__('Icon Link 2', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_2_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'social_icon_3',
-		esc_html__('Icon 3', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'social_icon_3_link',
-		esc_html__('Icon Link 3', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_3_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'social_icon_4',
-		esc_html__('Icon 4', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_4', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'social_icon_4_link',
-		esc_html__('Icon Link 4', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_icon_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'social_icon_4_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
+//	add_settings_field(
+//		'social_icon_1',
+//		esc_html__('Icon 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_1_link',
+//		esc_html__('Icon Link 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_1_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_2',
+//		esc_html__('Icon 2', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_2_link',
+//		esc_html__('Icon Link 2', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_2_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_3',
+//		esc_html__('Icon 3', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_3_link',
+//		esc_html__('Icon Link 3', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_3_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_4',
+//		esc_html__('Icon 4', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_4', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'social_icon_4_link',
+//		esc_html__('Icon Link 4', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_icon_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'social_icon_4_link', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
 
 	add_settings_field(
 		'optional_links_message',
@@ -215,85 +242,94 @@ add_settings_section(
 	);
 
 	add_settings_field(
-		'custom_link_icon_1',
-		esc_html__('Custom Link Icon 1', 'fdm-responsive-menu'),
+		'fdm_custom_link',
+		esc_html__('Custom Links', 'fdm-responsive-menu'),
 		'fdm_responsive_menu_callback_custom_link_icon',
 		'fdm-mobile-menu',
 		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_icon_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+		[ 'id' => 'custom_link_icon', 'label' => esc_html__('', 'fdm-responsive-menu') ]
 	);
 
-	add_settings_field(
-		'custom_link_1',
-		esc_html__('Custom Link 1', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_text_1',
-		esc_html__('Custom Link Text 1', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link_text',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_text_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_icon_2',
-		esc_html__('Custom Link Icon 2', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link_icon',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_icon_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_2',
-		esc_html__('Custom Link 2', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_text_2',
-		esc_html__('Custom Link Text 2', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link_text',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_text_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_icon_3',
-		esc_html__('Custom Link Icon 3', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link_icon',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_icon_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_3',
-		esc_html__('Custom Link 3', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
-
-	add_settings_field(
-		'custom_link_text_3',
-		esc_html__('Custom Link Text 3', 'fdm-responsive-menu'),
-		'fdm_responsive_menu_callback_custom_link_text',
-		'fdm-mobile-menu',
-		'fdm_responsive_menu_section_admin',
-		[ 'id' => 'custom_link_text_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
-	);
+//	add_settings_field(
+//		'fdm_custom_link_icon_1',
+//		esc_html__('Custom Link Icon 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_icon_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_1',
+//		esc_html__('Custom Link 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_text_1',
+//		esc_html__('Custom Link Text 1', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_text',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_text_1', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_icon_2',
+//		esc_html__('Custom Link Icon 2', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_icon_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_2',
+//		esc_html__('Custom Link 2', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_text_2',
+//		esc_html__('Custom Link Text 2', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_text',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_text_2', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_icon_3',
+//		esc_html__('Custom Link Icon 3', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_icon',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_icon_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_3',
+//		esc_html__('Custom Link 3', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
+//
+//	add_settings_field(
+//		'custom_link_text_3',
+//		esc_html__('Custom Link Text 3', 'fdm-responsive-menu'),
+//		'fdm_responsive_menu_callback_custom_link_text',
+//		'fdm-mobile-menu',
+//		'fdm_responsive_menu_section_admin',
+//		[ 'id' => 'custom_link_text_3', 'label' => esc_html__('', 'fdm-responsive-menu') ]
+//	);
 
 // Add Field Style Options
 	add_settings_field(

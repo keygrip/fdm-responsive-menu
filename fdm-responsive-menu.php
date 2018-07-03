@@ -3,7 +3,7 @@
 Plugin Name: Slide Out Sidebar Menu
 Plugin URI:   https://flyingdonutmedia.com
 Description: Customizable slide out sidebar navigation menu.
-Version: 1.0.1
+Version: 1.1.0
 Author: Flying Donut Media
 Author URI: https://flyingdonutmedia.com
 License: GPL-3.0
@@ -14,7 +14,7 @@ Domain Path:  /languages
 
 // Exit if file is called directly
 if (! defined( 'ABSPATH' ) ){
-    exit;
+	exit;
 }
 
 // load text domain
@@ -31,12 +31,13 @@ function fdm_responsive_menu_scripts() {
 
 	wp_enqueue_style( 'sidr_style', plugin_dir_url(  __FILE__  ) . 'assets/sidr/css/jquery.sidr.dark.min.css', array(), null, 'screen' );
 
-	wp_enqueue_style( 'fdm_responsive_menu_styles', plugin_dir_url(  __FILE__  ) . 'assets/css/fdm-responsive-menu.css', array(), null, 'screen' );
+	wp_enqueue_style( 'fdm_responsive_menu_styles', plugin_dir_url(  __FILE__  ) . 'assets/css/fdm-styles.css', array(), null, 'screen' );
 
 	wp_enqueue_script( 'jquery');
 
 	wp_enqueue_script( 'sidr_js', plugin_dir_url( __FILE__ ) . 'assets/sidr/js/jquery.sidr.min.js', array(), null, false );
 
+	wp_enqueue_style( 'font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), null, 'screen' );
 
 }
 add_action( 'wp_enqueue_scripts', 'fdm_responsive_menu_scripts' );
@@ -60,7 +61,7 @@ function fdm_responsive_menu_admin_scripts() {
 
 	wp_enqueue_script( 'fontawesome-iconpicker_js', plugin_dir_url( __FILE__ ) . 'admin/js/fontawesome-iconpicker.min.js', array(), null, false );
 
-	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.min.js', array(), null, true );
+	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.js', array(), null, true );
 }
 add_action( 'admin_enqueue_scripts', 'fdm_responsive_menu_admin_scripts' );
 
@@ -100,7 +101,7 @@ function fdm_responsive_menu_options_default() {
 		'menu_text'             => esc_html__('Menu', 'fdm-responsive-menu'),
 		'menu_position'         => 'right',
 		'menu_displacement'     => false,
-        'nav_menu'              => 'default',
+		'nav_menu'              => 'default',
 		'fontawesome'           => false,
 		'site_logo'             => '',
 		'social_icon_1'         => '',
@@ -129,45 +130,49 @@ function fdm_responsive_menu_options_default() {
 
 // create shortcode
 function fdm_sidebar_menu_shortcode() {
-    $option = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+	$option = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
+	$i = 1;
 
-    $selected_menu = $option['nav_menu'];
+	$selected_menu = $option['nav_menu'];
 	$menu_icon = $option['menu_icon'] ? "<i class='fa ".$option['menu_icon']."'></i>" : '';
 	$menu_text = $option['menu_text'] ? "<span class='menu-button-text'>".$option['menu_text']."</span>" : '';
 	$img_logo = $option['site_logo'] ? "<div class='mobile-logo'><a href='".home_url()."'><img src='".$option['site_logo']."' /></a></div>" : '';
-	$icon_1 = $option['social_icon_1'] ? "<div class='icon icon-1'><a href='".$option['social_icon_1_link']."'><i class='fa ".$option['social_icon_1']."'></i></a></div>" : '';
-	$icon_2 = $option['social_icon_2'] ? "<div class='icon icon-2'><a href='".$option['social_icon_2_link']."'><i class='fa ".$option['social_icon_2']."'></i></a></div>" : '';
-	$icon_3 = $option['social_icon_3'] ? "<div class='icon icon-3'><a href='".$option['social_icon_3_link']."'><i class='fa ".$option['social_icon_3']."'></i></a></div>" : '';
-	$icon_4 = $option['social_icon_4'] ? "<div class='icon icon-4'><a href='".$option['social_icon_4_link']."'><i class='fa ".$option['social_icon_4']."'></i></a></div>" : '';
-	$custom_icon1 = $option['custom_link_icon_1'] ? $option['custom_link_icon_1'] : '';
-	$custom_link1 = $option['custom_link_1'] ? $option['custom_link_1'] : '';
-	$custom_text1 = $option['custom_link_text_1'] ? $option['custom_link_text_1'] : '';
+//	$icon_1 = $option['social_icon_1'] ? "<div class='icon icon-1'><a href='".$option['social_icon_1_link']."'><i class='fa ".$option['social_icon_1']."'></i></a></div>" : '';
+//	$icon_2 = $option['social_icon_2'] ? "<div class='icon icon-2'><a href='".$option['social_icon_2_link']."'><i class='fa ".$option['social_icon_2']."'></i></a></div>" : '';
+//	$icon_3 = $option['social_icon_3'] ? "<div class='icon icon-3'><a href='".$option['social_icon_3_link']."'><i class='fa ".$option['social_icon_3']."'></i></a></div>" : '';
+//	$icon_4 = $option['social_icon_4'] ? "<div class='icon icon-4'><a href='".$option['social_icon_4_link']."'><i class='fa ".$option['social_icon_4']."'></i></a></div>" : '';
 
-	if ($custom_icon1 || $custom_link1 || $custom_text1) {
-		$custom_icon_1 = "<div class='custom-icon custom-icon-1'><a href='".$custom_link1."'><i class='fa ".$custom_icon1."'></i>  ".$custom_text1."</a></div>";
-	} else {
-		$custom_icon_1 = '';
-	}
+//	$icon = $option['fdm_social_link_'.$i] ? "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>" : '';
 
-	$custom_icon2 = $option['custom_link_icon_2'] ? $option['custom_link_icon_2'] : '';
-	$custom_link2 = $option['custom_link_2'] ? $option['custom_link_2'] : '';
-	$custom_text2 = $option['custom_link_text_2'] ? $option['custom_link_text_2'] : '';
+//	$custom_icon1 = $option['custom_link_icon_1'] ? $option['custom_link_icon_1'] : '';
+//	$custom_link1 = $option['custom_link_1'] ? $option['custom_link_1'] : '';
+//	$custom_text1 = $option['custom_link_text_1'] ? $option['custom_link_text_1'] : '';
 
-	if ($custom_icon2 || $custom_link2 || $custom_text2) {
-		$custom_icon_2 = "<div class='custom-icon custom-icon-2'><a href='".$custom_link2."'><i class='fa ".$custom_icon2."'></i>  ".$custom_text2."</a></div>";
-	} else {
-		$custom_icon_2 = '';
-	}
-
-	$custom_icon3 = $option['custom_link_icon_3'] ? $option['custom_link_icon_3'] : '';
-	$custom_link3 = $option['custom_link_3'] ? $option['custom_link_3'] : '';
-	$custom_text3 = $option['custom_link_text_3'] ? $option['custom_link_text_3'] : '';
-
-	if ($custom_icon3 || $custom_link3 || $custom_text3) {
-		$custom_icon_3 = "<div class='custom-icon custom-icon-3'><a href='".$custom_link3."'><i class='fa ".$custom_icon3."'></i>  ".$custom_text3."</a></div>";
-	} else {
-		$custom_icon_3 = '';
-	}
+//	if ($custom_icon1 || $custom_link1 || $custom_text1) {
+//		$custom_icon_1 = "<div class='custom-icon custom-icon-1'><a href='".$custom_link1."'><i class='fa ".$custom_icon1."'></i>  ".$custom_text1."</a></div>";
+//	} else {
+//		$custom_icon_1 = '';
+//	}
+//
+//	$custom_icon2 = $option['custom_link_icon_2'] ? $option['custom_link_icon_2'] : '';
+//	$custom_link2 = $option['custom_link_2'] ? $option['custom_link_2'] : '';
+//	$custom_text2 = $option['custom_link_text_2'] ? $option['custom_link_text_2'] : '';
+//
+//	if ($custom_icon2 || $custom_link2 || $custom_text2) {
+//		$custom_icon_2 = "<div class='custom-icon custom-icon-2'><a href='".$custom_link2."'><i class='fa ".$custom_icon2."'></i>  ".$custom_text2."</a></div>";
+//	} else {
+//		$custom_icon_2 = '';
+//	}
+//
+//	$custom_icon3 = $option['custom_link_icon_3'] ? $option['custom_link_icon_3'] : '';
+//	$custom_link3 = $option['custom_link_3'] ? $option['custom_link_3'] : '';
+//	$custom_text3 = $option['custom_link_text_3'] ? $option['custom_link_text_3'] : '';
+//
+//	if ($custom_icon3 || $custom_link3 || $custom_text3) {
+//		$custom_icon_3 = "<div class='custom-icon custom-icon-3'><a href='".$custom_link3."'><i class='fa ".$custom_icon3."'></i>  ".$custom_text3."</a></div>";
+//	} else {
+//		$custom_icon_3 = '';
+//	}
 
 	$nav_menu = '<div id="mobile-header">';
 	$nav_menu .= '<a href="#sidr" id="responsive-menu-button">'.$menu_icon.$menu_text.'</a>';
@@ -177,15 +182,43 @@ function fdm_sidebar_menu_shortcode() {
 	$nav_menu .= $img_logo;
 	$nav_menu .= wp_nav_menu( array ( 'menu' => $selected_menu, 'echo' => false ) );
 	$nav_menu .= '<div class="icons">';
-	$nav_menu .= $icon_1;
-	$nav_menu .= $icon_2;
-	$nav_menu .= $icon_3;
-	$nav_menu .= $icon_4;
+
+	foreach ($option as $text_input => $val ){
+		if( substr( $text_input, 0, 16 ) == 'fdm_social_icon_') {
+			//$nav_menu .= "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>";
+			$nav_menu .= '<div class="icon icon-'.$i.'"><a href="'.$option["fdm_social_link_".$i].'"><i class="fa '.$option["fdm_social_icon_".$i].'"></i></a></div>';
+			$i++;
+		}
+	}
+	//$nav_menu .= $icon_1;
+	//$nav_menu .= $icon_2;
+	//$nav_menu .= $icon_3;
+	//$nav_menu .= $icon_4;
 	$nav_menu .= apply_filters( 'compiled_scss_filter', '' );
 	$nav_menu .= '</div><!--/icons-->';
-	$nav_menu .= $custom_icon_1;
-	$nav_menu .= $custom_icon_2;
-	$nav_menu .= $custom_icon_3;
+	$i = 1;
+	foreach ($option as $custom => $val ){
+
+		if( substr( $custom, 0, 16 ) == 'fdm_custom_link_') {
+			//$nav_menu .= "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>";
+
+			$custom_icon = $option['fdm_custom_link_icon_'.$i] ? $option['fdm_custom_link_icon_'.$i] : '';
+			$custom_link = $option['fdm_custom_link_'.$i] ? $option['fdm_custom_link_'.$i] : '';
+			$custom_text = $option['fdm_custom_link_text_'.$i] ? $option['fdm_custom_link_text_'.$i] : '';
+
+			if ($custom_icon || $custom_link || $custom_text) {
+				$nav_menu .= '<div class="custom-icon custom-icon-'.$i.'"><a href="'.$custom_link.'"><i class="fa '.$custom_icon.'"></i>'.$custom_text.'</a></div>';
+			} else {
+				$nav_menu .= '';
+			}
+
+			$i++;
+			//var_dump($i);
+		}
+	}
+	//$nav_menu .= $custom_icon_1;
+	//$nav_menu .= $custom_icon_2;
+	//$nav_menu .= $custom_icon_3;
 	$nav_menu .= '</div><!--/mobile-navigation-->';
 
 	return $nav_menu;

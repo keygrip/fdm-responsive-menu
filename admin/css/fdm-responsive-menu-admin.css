@@ -8,18 +8,27 @@
     max-width: 150px;
     background: #e5e5e5; }
 
-.input-group.choose-icon {
-  max-width: 210px; }
-  .input-group.choose-icon .input-group-addon {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    color: #555;
-    text-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 4px; }
+.input-group.choose-icon .input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+
+.iconpicker-container .input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
 
 /* The switch - the box around the slider */
 .switch {
@@ -72,3 +81,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%; }
+
+.fdm_responsive_menu_rows .fdm-social-icon, .fdm_responsive_menu_rows .fdm-custom-icon-link {
+  padding-bottom: 10px; }
+  .fdm_responsive_menu_rows .fdm-social-icon .link-input, .fdm_responsive_menu_rows .fdm-social-icon .custom-link-input, .fdm_responsive_menu_rows .fdm-social-icon .custom-link-text, .fdm_responsive_menu_rows .fdm-custom-icon-link .link-input, .fdm_responsive_menu_rows .fdm-custom-icon-link .custom-link-input, .fdm_responsive_menu_rows .fdm-custom-icon-link .custom-link-text {
+    margin-left: 10px; }
