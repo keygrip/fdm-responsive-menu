@@ -104,25 +104,13 @@ function fdm_responsive_menu_options_default() {
 		'nav_menu'              => 'default',
 		'fontawesome'           => false,
 		'site_logo'             => '',
-		'social_icon_1'         => '',
-		'social_icon_link_1'    => '',
-		'social_icon_2'         => '',
-		'social_icon_link_2'    => '',
-		'social_icon_3'         => '',
-		'social_icon_link_3'    => '',
-		'social_icon_4'         => '',
-		'social_icon_link_4'    => '',
+		'fdm_social_icon_1'         => '',
+		'fdm_social_link_1'    => '',
 		'menu_background_color' => '#333',
 		'menu_link_color'       => '#fff',
-		'custom_link_icon_1'    => '',
-		'custom_link_1'         => '',
-		'custom_link_text_1'    => '',
-		'custom_link_icon_2'    => '',
-		'custom_link_2'         => '',
-		'custom_link_text_2'    => '',
-		'custom_link_icon_3'    => '',
-		'custom_link_3'         => '',
-		'custom_link_text_3'    => '',
+		'fdm_custom_link_icon_1'    => '',
+		'fdm_custom_link_1'         => '',
+		'fdm_custom_link_text_1'    => '',
 		'main_menu_hide'        => '',
 	);
 
@@ -137,42 +125,6 @@ function fdm_sidebar_menu_shortcode() {
 	$menu_icon = $option['menu_icon'] ? "<i class='fa ".$option['menu_icon']."'></i>" : '';
 	$menu_text = $option['menu_text'] ? "<span class='menu-button-text'>".$option['menu_text']."</span>" : '';
 	$img_logo = $option['site_logo'] ? "<div class='mobile-logo'><a href='".home_url()."'><img src='".$option['site_logo']."' /></a></div>" : '';
-//	$icon_1 = $option['social_icon_1'] ? "<div class='icon icon-1'><a href='".$option['social_icon_1_link']."'><i class='fa ".$option['social_icon_1']."'></i></a></div>" : '';
-//	$icon_2 = $option['social_icon_2'] ? "<div class='icon icon-2'><a href='".$option['social_icon_2_link']."'><i class='fa ".$option['social_icon_2']."'></i></a></div>" : '';
-//	$icon_3 = $option['social_icon_3'] ? "<div class='icon icon-3'><a href='".$option['social_icon_3_link']."'><i class='fa ".$option['social_icon_3']."'></i></a></div>" : '';
-//	$icon_4 = $option['social_icon_4'] ? "<div class='icon icon-4'><a href='".$option['social_icon_4_link']."'><i class='fa ".$option['social_icon_4']."'></i></a></div>" : '';
-
-//	$icon = $option['fdm_social_link_'.$i] ? "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>" : '';
-
-//	$custom_icon1 = $option['custom_link_icon_1'] ? $option['custom_link_icon_1'] : '';
-//	$custom_link1 = $option['custom_link_1'] ? $option['custom_link_1'] : '';
-//	$custom_text1 = $option['custom_link_text_1'] ? $option['custom_link_text_1'] : '';
-
-//	if ($custom_icon1 || $custom_link1 || $custom_text1) {
-//		$custom_icon_1 = "<div class='custom-icon custom-icon-1'><a href='".$custom_link1."'><i class='fa ".$custom_icon1."'></i>  ".$custom_text1."</a></div>";
-//	} else {
-//		$custom_icon_1 = '';
-//	}
-//
-//	$custom_icon2 = $option['custom_link_icon_2'] ? $option['custom_link_icon_2'] : '';
-//	$custom_link2 = $option['custom_link_2'] ? $option['custom_link_2'] : '';
-//	$custom_text2 = $option['custom_link_text_2'] ? $option['custom_link_text_2'] : '';
-//
-//	if ($custom_icon2 || $custom_link2 || $custom_text2) {
-//		$custom_icon_2 = "<div class='custom-icon custom-icon-2'><a href='".$custom_link2."'><i class='fa ".$custom_icon2."'></i>  ".$custom_text2."</a></div>";
-//	} else {
-//		$custom_icon_2 = '';
-//	}
-//
-//	$custom_icon3 = $option['custom_link_icon_3'] ? $option['custom_link_icon_3'] : '';
-//	$custom_link3 = $option['custom_link_3'] ? $option['custom_link_3'] : '';
-//	$custom_text3 = $option['custom_link_text_3'] ? $option['custom_link_text_3'] : '';
-//
-//	if ($custom_icon3 || $custom_link3 || $custom_text3) {
-//		$custom_icon_3 = "<div class='custom-icon custom-icon-3'><a href='".$custom_link3."'><i class='fa ".$custom_icon3."'></i>  ".$custom_text3."</a></div>";
-//	} else {
-//		$custom_icon_3 = '';
-//	}
 
 	$nav_menu = '<div id="mobile-header">';
 	$nav_menu .= '<a href="#sidr" id="responsive-menu-button">'.$menu_icon.$menu_text.'</a>';
@@ -185,22 +137,17 @@ function fdm_sidebar_menu_shortcode() {
 
 	foreach ($option as $text_input => $val ){
 		if( substr( $text_input, 0, 16 ) == 'fdm_social_icon_') {
-			//$nav_menu .= "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>";
 			$nav_menu .= '<div class="icon icon-'.$i.'"><a href="'.$option["fdm_social_link_".$i].'"><i class="fa '.$option["fdm_social_icon_".$i].'"></i></a></div>';
 			$i++;
 		}
 	}
-	//$nav_menu .= $icon_1;
-	//$nav_menu .= $icon_2;
-	//$nav_menu .= $icon_3;
-	//$nav_menu .= $icon_4;
+
 	$nav_menu .= apply_filters( 'compiled_scss_filter', '' );
 	$nav_menu .= '</div><!--/icons-->';
 	$i = 1;
 	foreach ($option as $custom => $val ){
 
 		if( substr( $custom, 0, 16 ) == 'fdm_custom_link_') {
-			//$nav_menu .= "<div class='icon icon-".$i."'><a href='".$option['fdm_social_link_'.$i]."'><i class='fa ".$option['fdm_social_icon_'.$i]."'></i></a></div>";
 
 			$custom_icon = $option['fdm_custom_link_icon_'.$i] ? $option['fdm_custom_link_icon_'.$i] : '';
 			$custom_link = $option['fdm_custom_link_'.$i] ? $option['fdm_custom_link_'.$i] : '';
@@ -211,14 +158,10 @@ function fdm_sidebar_menu_shortcode() {
 			} else {
 				$nav_menu .= '';
 			}
-
 			$i++;
-			//var_dump($i);
 		}
 	}
-	//$nav_menu .= $custom_icon_1;
-	//$nav_menu .= $custom_icon_2;
-	//$nav_menu .= $custom_icon_3;
+
 	$nav_menu .= '</div><!--/mobile-navigation-->';
 
 	return $nav_menu;

@@ -81,19 +81,34 @@ function fdm_responsive_menu_validate_options($input) {
 
 	}
 
-	// Icon 1
-	if ( isset( $input['social_icon_1'] ) ) {
+	// Icon
+	if ( isset( $input['fdm_social_icon_1'] ) ) {
 
-		$input['social_icon_1'] = sanitize_text_field( $input['social_icon_1'] );
+		$input['fdm_social_icon_1'] = sanitize_text_field( $input['fdm_social_icon_1'] );
+
+	}
+
+
+	// Icon Link
+	if ( isset( $input['fdm_social_icon_link_1'] ) ) {
+
+		$input['fdm_social_icon_link_1'] = esc_url( $input['fdm_social_icon_link_1'] );
 
 	}
 
-	// Icon 1 Link
-	if ( isset( $input['social_icon_link_1'] ) ) {
-
-		$input['social_icon_link_1'] = esc_url( $input['social_icon_link_1'] );
-
-	}
+//	// Icon 1
+//	if ( isset( $input['social_icon_1'] ) ) {
+//
+//		$input['social_icon_1'] = sanitize_text_field( $input['social_icon_1'] );
+//
+//	}
+//
+//	// Icon 1 Link
+//	if ( isset( $input['social_icon_link_1'] ) ) {
+//
+//		$input['social_icon_link_1'] = esc_url( $input['social_icon_link_1'] );
+//
+//	}
 
 //	// Icon 1 Link
 //	if ( isset( $input['social_icon_1_link'] ) ) {
@@ -144,68 +159,68 @@ function fdm_responsive_menu_validate_options($input) {
 //
 //	}
 
-	// Custom Link Icon 1
-	if ( isset( $input['custom_link_icon_1'] ) ) {
-
-		$input['custom_link_icon_1'] = sanitize_text_field( $input['custom_link_icon_1'] );
-
-	}
-
-	// Custom Link 1
-	if ( isset( $input['custom_link_1'] ) ) {
-
-		$input['custom_link_1'] = esc_url( $input['custom_link_1'] );
-
-	}
-
-	// Custom Link Text 1
-	if ( isset( $input['custom_link_text_1'] ) ) {
-
-		$input['custom_link_text_1'] = sanitize_text_field( $input['custom_link_text_1'] );
-
-	}
-
-	// Custom Link Icon 2
-	if ( isset( $input['custom_link_icon_2'] ) ) {
-
-		$input['custom_link_icon_2'] = sanitize_text_field( $input['custom_link_icon_2'] );
-
-	}
-
-	// Custom Link 2
-	if ( isset( $input['custom_link_2'] ) ) {
-
-		$input['custom_link_2'] = esc_url( $input['custom_link_2'] );
-
-	}
-
-	// Custom Link Text 2
-	if ( isset( $input['custom_link_text_2'] ) ) {
-
-		$input['custom_link_text_2'] = sanitize_text_field( $input['custom_link_text_2'] );
-
-	}
-
-	// Custom Link Icon 3
-	if ( isset( $input['custom_link_icon_3'] ) ) {
-
-		$input['custom_link_icon_3'] = sanitize_text_field( $input['custom_link_icon_3'] );
-
-	}
-
-	// Custom Link 3
-	if ( isset( $input['custom_link_3'] ) ) {
-
-		$input['custom_link_3'] = esc_url( $input['custom_link_3'] );
-
-	}
-
-	// Custom Link Text 3
-	if ( isset( $input['custom_link_text_3'] ) ) {
-
-		$input['custom_link_text_3'] = sanitize_text_field( $input['custom_link_text_3'] );
-
-	}
+//	// Custom Link Icon 1
+//	if ( isset( $input['custom_link_icon_1'] ) ) {
+//
+//		$input['custom_link_icon_1'] = sanitize_text_field( $input['custom_link_icon_1'] );
+//
+//	}
+//
+//	// Custom Link 1
+//	if ( isset( $input['custom_link_1'] ) ) {
+//
+//		$input['custom_link_1'] = esc_url( $input['custom_link_1'] );
+//
+//	}
+//
+//	// Custom Link Text 1
+//	if ( isset( $input['custom_link_text_1'] ) ) {
+//
+//		$input['custom_link_text_1'] = sanitize_text_field( $input['custom_link_text_1'] );
+//
+//	}
+//
+//	// Custom Link Icon 2
+//	if ( isset( $input['custom_link_icon_2'] ) ) {
+//
+//		$input['custom_link_icon_2'] = sanitize_text_field( $input['custom_link_icon_2'] );
+//
+//	}
+//
+//	// Custom Link 2
+//	if ( isset( $input['custom_link_2'] ) ) {
+//
+//		$input['custom_link_2'] = esc_url( $input['custom_link_2'] );
+//
+//	}
+//
+//	// Custom Link Text 2
+//	if ( isset( $input['custom_link_text_2'] ) ) {
+//
+//		$input['custom_link_text_2'] = sanitize_text_field( $input['custom_link_text_2'] );
+//
+//	}
+//
+//	// Custom Link Icon 3
+//	if ( isset( $input['custom_link_icon_3'] ) ) {
+//
+//		$input['custom_link_icon_3'] = sanitize_text_field( $input['custom_link_icon_3'] );
+//
+//	}
+//
+//	// Custom Link 3
+//	if ( isset( $input['custom_link_3'] ) ) {
+//
+//		$input['custom_link_3'] = esc_url( $input['custom_link_3'] );
+//
+//	}
+//
+//	// Custom Link Text 3
+//	if ( isset( $input['custom_link_text_3'] ) ) {
+//
+//		$input['custom_link_text_3'] = sanitize_text_field( $input['custom_link_text_3'] );
+//
+//	}
 
 	// Menu Button Color
 	if ( isset( $input['menu_button_color'] ) ) {
@@ -262,6 +277,7 @@ function fdm_responsive_menu_validate_options($input) {
 		$input['main_menu_hide'] = sanitize_text_field( $input['main_menu_hide'] );
 
 	}
+
 
 	return $input;
 
