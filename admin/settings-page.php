@@ -34,16 +34,19 @@ function fdm_responsive_menu_display_settings_page() {
 
 				settings_fields( 'fdm_responsive_menu_options' );
 				do_settings_sections( 'fdm-mobile-menu' );
+				settings_errors();
 
 			} elseif ( $active_tab == 'settings_options' ){
 
 				settings_fields( 'fdm_responsive_menu_settings_options' );
 				do_settings_sections( 'fdm-mobile-menu-settings' );
+				settings_errors();
 
             } else {
 
 				settings_fields( 'fdm_responsive_menu_style_options' );
 				do_settings_sections( 'fdm-mobile-menu-styles' );
+				settings_errors();
 
 			}
 			// submit button
@@ -56,11 +59,3 @@ function fdm_responsive_menu_display_settings_page() {
 	<?php
 
 }
-
-// display default admin notice
-function fdm_responsive_menu_add_settings_errors() {
-
-	settings_errors();
-
-}
-add_action('admin_notices', 'fdm_responsive_menu_add_settings_errors');

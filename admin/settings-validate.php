@@ -4,7 +4,7 @@ if (! defined( 'ABSPATH' ) ){
 	exit;
 }
 
-// validate plugin settings
+// validate display options
 function fdm_responsive_menu_validate_options($input) {
 
 	// Menu Button Text
@@ -21,25 +21,6 @@ function fdm_responsive_menu_validate_options($input) {
 
 	}
 
-	// menu position
-	$radio_options = array(
-
-		'left'  => 'Left Side',
-		'right' => 'Right Side'
-
-	);
-
-	if ( ! isset( $input['menu_position'] ) ) {
-
-		$input['menu_position'] = null;
-
-	}
-	if ( ! array_key_exists( $input['menu_position'], $radio_options ) ) {
-
-		$input['menu_position'] = null;
-
-	}
-
 	// Select Menu
 	$select_options = fdm_responsive_menu_options_select();
 
@@ -52,25 +33,6 @@ function fdm_responsive_menu_validate_options($input) {
 	if ( ! array_key_exists( $input['nav_menu'], $select_options ) ) {
 
 		$input['nav_menu'] = null;
-
-	}
-
-	// include Font Awesome
-	$radio_options_fontawesome = array(
-
-		'enable'  => 'Enable Font Awesome',
-		'disable' => 'Disable Font Awesome'
-
-	);
-
-	if ( ! isset( $input['fontawesome'] ) ) {
-
-		$input['fontawesome'] = null;
-
-	}
-	if ( ! array_key_exists( $input['fontawesome'], $radio_options_fontawesome ) ) {
-
-		$input['fontawesome'] = null;
 
 	}
 
@@ -96,31 +58,47 @@ function fdm_responsive_menu_validate_options($input) {
 
 	}
 
-	// Menu Button Color
-	if ( isset( $input['menu_button_color'] ) ) {
 
-		$input['menu_button_color'] = sanitize_text_field( $input['menu_button_color'] );
+	return $input;
+
+}
+// validate style options
+function fdm_responsive_menu_settings_validate_options($input){
+	// menu position
+	$radio_options = array(
+
+		'left'  => 'Left Side',
+		'right' => 'Right Side'
+
+	);
+
+	if ( ! isset( $input['menu_position'] ) ) {
+
+		$input['menu_position'] = null;
+
+	}
+	if ( ! array_key_exists( $input['menu_position'], $radio_options ) ) {
+
+		$input['menu_position'] = null;
 
 	}
 
-	// Menu Background Color
-	if ( isset( $input['menu_background_color'] ) ) {
+	// include Font Awesome
+	$radio_options_fontawesome = array(
 
-		$input['menu_background_color'] = sanitize_text_field( $input['menu_background_color'] );
+		'enable'  => 'Enable Font Awesome',
+		'disable' => 'Disable Font Awesome'
+
+	);
+
+	if ( ! isset( $input['fontawesome'] ) ) {
+
+		$input['fontawesome'] = null;
 
 	}
+	if ( ! array_key_exists( $input['fontawesome'], $radio_options_fontawesome ) ) {
 
-	// Menu link Color
-	if ( isset( $input['menu_link_color'] ) ) {
-
-		$input['menu_link_color'] = sanitize_text_field( $input['menu_link_color'] );
-
-	}
-
-	// Icon link Color
-	if ( isset( $input['icon_link_color'] ) ) {
-
-		$input['icon_link_color'] = sanitize_text_field( $input['icon_link_color'] );
+		$input['fontawesome'] = null;
 
 	}
 
@@ -152,7 +130,39 @@ function fdm_responsive_menu_validate_options($input) {
 
 	}
 
-
 	return $input;
 
+}
+// validate settings options
+function fdm_responsive_menu_style_validate_options($input){
+
+	// Menu Button Color
+	if ( isset( $input['menu_button_color'] ) ) {
+
+		$input['menu_button_color'] = sanitize_text_field( $input['menu_button_color'] );
+
+	}
+
+	// Menu Background Color
+	if ( isset( $input['menu_background_color'] ) ) {
+
+		$input['menu_background_color'] = sanitize_text_field( $input['menu_background_color'] );
+
+	}
+
+	// Menu link Color
+	if ( isset( $input['menu_link_color'] ) ) {
+
+		$input['menu_link_color'] = sanitize_text_field( $input['menu_link_color'] );
+
+	}
+
+	// Icon link Color
+	if ( isset( $input['icon_link_color'] ) ) {
+
+		$input['icon_link_color'] = sanitize_text_field( $input['icon_link_color'] );
+
+	}
+
+	return $input;
 }
