@@ -168,6 +168,16 @@ input:checked + .slider:before {
 
 // Icon & Link Settings
 .fdm_responsive_menu_rows{
+  .row-titles{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    .row-title{
+      width: 100%;
+      max-width: 200px;
+      padding: 0 0 0 10px;
+    }
+  }
   .fdm-social-icon, .fdm-custom-icon-link{
     padding-bottom: 10px;
     .link-input, .custom-link-input, .custom-link-text{
