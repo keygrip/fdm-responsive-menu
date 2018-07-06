@@ -34,6 +34,7 @@
   }
   .mobile-logo{
     text-align: center;
+    padding-top: 25px;
     img{
       padding: 10px;
     }
@@ -49,6 +50,7 @@
   }
   .custom-icon{
     a{
+      @include font-size(12px);
       .fa{
         padding-right: 10px;
       }
