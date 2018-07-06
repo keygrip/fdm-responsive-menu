@@ -3,7 +3,7 @@
 Plugin Name: Slide Out Sidebar Menu
 Plugin URI:   https://flyingdonutmedia.com
 Description: Customizable slide out sidebar navigation menu.
-Version: 1.1.0
+Version: 1.1.1
 Author: Flying Donut Media
 Author URI: https://flyingdonutmedia.com
 License: GPL-3.0
@@ -61,7 +61,7 @@ function fdm_responsive_menu_admin_scripts() {
 
 	wp_enqueue_script( 'fontawesome-iconpicker_js', plugin_dir_url( __FILE__ ) . 'admin/js/fontawesome-iconpicker.min.js', array(), null, false );
 
-	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.js', array(), null, true );
+	wp_enqueue_script( 'fdm_responsive_menu_js', plugin_dir_url( __FILE__ ) . 'admin/js/fdm-responsive-menu.min.js', array(), null, true );
 }
 add_action( 'admin_enqueue_scripts', 'fdm_responsive_menu_admin_scripts' );
 
