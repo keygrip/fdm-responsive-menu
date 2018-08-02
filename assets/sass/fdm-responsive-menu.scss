@@ -58,13 +58,13 @@
   }
   .expand{
     a{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      //display: flex;
+      //flex-direction: row;
+      //flex-wrap: nowrap;
       .open-menu{
         //content: '\f0d7';
         //font-family: fontawesome;
-        display: inline-block;
+        display: inline;
         margin-right: auto;
         width: 100%;
 
