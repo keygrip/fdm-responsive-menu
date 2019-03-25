@@ -178,7 +178,7 @@ function fdm_responsive_menu_callback_menu_hide( $args ) {
 
 	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
 
-	echo '<input id="fdm_responsive_menu_settings_options_'. $id .'" name="fdm_responsive_menu_settings_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+	echo '<input id="fdm_responsive_menu_settings_options_'. $id .'" name="fdm_responsive_menu_settings_options['. $id .']" type="text" size="40" value="'. $value .'" placeholder="ex: #main-menu"><br />';
 	echo '<label for="fdm_responsive_menu_settings_options_'. $id .'">'. $label .'</label>';
 
 }

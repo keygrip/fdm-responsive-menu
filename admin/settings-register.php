@@ -410,7 +410,7 @@ add_settings_section(
 		'fdm_responsive_menu_callback_break_point',
 		'fdm-mobile-menu-settings',
 		'fdm_responsive_menu_section_settings',
-		[ 'id' => 'break_point', 'label' => esc_html__('Enter the break point that you want the menu to show (default is 768px).', 'fdm-responsive-menu') ]
+		[ 'id' => 'break_point', 'label' => esc_html__('Enter the break point that you want the menu to show, default is 768px.  Enter 0 to always show (Optional).', 'fdm-responsive-menu') ]
 	);
 
 	add_settings_field(
@@ -419,7 +419,7 @@ add_settings_section(
 		'fdm_responsive_menu_callback_menu_hide',
 		'fdm-mobile-menu-settings',
 		'fdm_responsive_menu_section_settings',
-		[ 'id' => 'main_menu_hide', 'label' => esc_html__('Enter the ID or Class of the main menu that needs to be hidden.', 'fdm-responsive-menu') ]
+		[ 'id' => 'main_menu_hide', 'label' => esc_html__('Enter the ID or Class of the main menu that needs to be hidden (Optional).', 'fdm-responsive-menu') ]
 	);
 
 }

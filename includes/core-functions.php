@@ -381,19 +381,21 @@ function fdm_responsive_menu_hide_main_menu( $classID ) {
 	}
 
 	//return $classID;
-	$menuBreakPoint = ( !empty( fdm_responsive_menu_break_point('') ) ? fdm_responsive_menu_break_point('') : '768' );
-	?>
+	$menuBreakPoint = ( !empty( $options['break_point'] ) ? $options['break_point'] : '768' ); ?>
     <style>
         @media (max-width: <?php echo $menuBreakPoint; ?>px){
             <?php echo $classID; ?>{
                 display: none!important;
+            }
+            #mobile-header {
+                display: block;
             }
         }
     </style>
     <?php
 
 }
-add_action( 'wp_head', 'fdm_responsive_menu_hide_main_menu' );
+add_action( 'wp_footer', 'fdm_responsive_menu_hide_main_menu', 99999 );
 
 // Compile SCSS
 function compiled_scss() {

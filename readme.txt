@@ -6,7 +6,7 @@ Tags: sidr, sidr menu, offside menu, side menu, slide out menu, mobile menu, res
 
 Requires at least: 3.5
 Tested up to: 4.9.4
-Stable tag: 1.0
+Stable tag: 1.2.0
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,10 +40,14 @@ Use the shortcode [fdm-responsive-menu]
 2. Frontend Side Menu Open
 
 == Changelog ==
-1.0
+1.2.0
+Upgraded to Fontawesome 5.5.0.
+Fixed Menu Break Point and ID or Class to hide in settings options.
+
+1.0.0
 Initial version.
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 Initial version.

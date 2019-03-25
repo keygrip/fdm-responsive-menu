@@ -3,7 +3,7 @@
 Plugin Name: Slide Out Sidebar Menu
 Plugin URI:   https://flyingdonutmedia.com
 Description: Customizable slide out sidebar navigation menu.
-Version: 1.1.3
+Version: 1.2.0
 Author: Flying Donut Media
 Author URI: https://flyingdonutmedia.com
 License: GPL-3.0
@@ -37,7 +37,7 @@ function fdm_responsive_menu_scripts() {
 
 	wp_enqueue_script( 'sidr_js', plugin_dir_url( __FILE__ ) . 'assets/sidr/js/jquery.sidr.min.js', array(), null, false );
 
-	wp_enqueue_style( 'font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), null, 'screen' );
+	wp_enqueue_style( 'font-awesome-css', '//use.fontawesome.com/releases/v5.5.0/css/all.css', array(), null, 'screen' );
 
 }
 add_action( 'wp_enqueue_scripts', 'fdm_responsive_menu_scripts' );
@@ -49,7 +49,7 @@ function fdm_responsive_menu_admin_scripts() {
 
 	wp_enqueue_style( 'fontawesome-iconpicker_styles', plugin_dir_url(  __FILE__  ) . 'admin/css/fontawesome-iconpicker.min.css', array(), null, 'screen' );
 
-	wp_enqueue_style( 'font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), null, 'screen' );
+	wp_enqueue_style( 'font-awesome-css', '//use.fontawesome.com/releases/v5.5.0/css/all.css', array(), null, 'screen' );
 
 	wp_enqueue_style( 'wp-color-picker' );
 
@@ -97,7 +97,7 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'fdm_responsive_
 function fdm_responsive_menu_options_default() {
 
 	return array(
-		'menu_icon'             => 'fa-bars',
+		'menu_icon'             => 'fas fa-bars',
 		'menu_text'             => esc_html__('Menu', 'fdm-responsive-menu'),
 		'menu_position'         => 'right',
 		'menu_displacement'     => false,
