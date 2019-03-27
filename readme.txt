@@ -5,8 +5,8 @@ Donate link: https://flyingdonutmedia.com
 Tags: sidr, sidr menu, offside menu, side menu, slide out menu, mobile menu, responsive menu
 
 Requires at least: 3.5
-Tested up to: 4.9.4
-Stable tag: 1.2.0
+Tested up to: 5.1.1
+Stable tag: 1.2.1
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,6 +40,10 @@ Use the shortcode [fdm-responsive-menu]
 2. Frontend Side Menu Open
 
 == Changelog ==
+1.2.1
+Fix menu with sub-navigation to show expand carat.
+Fix spacing if no additional icons or links are used below the menu.
+
 1.2.0
 Upgraded to Fontawesome 5.5.0.
 Fixed Menu Break Point and ID or Class to hide in settings options.

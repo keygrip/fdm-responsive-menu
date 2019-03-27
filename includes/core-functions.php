@@ -5,6 +5,7 @@ if (! defined( 'ABSPATH' ) ){
 }
 
 // SIDR JS
+add_action( 'wp_footer', 'fdm_responsive_menu_sidrJS_options', 9999 );
 function fdm_responsive_menu_sidrJS_options() {
 
 	$menu_position = fdm_responsive_menu_position();
@@ -49,7 +50,7 @@ function fdm_responsive_menu_sidrJS_options() {
             //     //console.log( $(this).has('ul.sub-menu') );
             // })
 
-            $("li.expand > a").append('<a href="javascript:void(0);" class="open-menu"><i class="fa fa-caret-down"></i></a>');
+            $("li.expand > a").append('<a href="javascript:void(0);" class="open-menu"><i class="fas fa-caret-down"></i></a>');
             //when the expand button is clicked, open child list and add class to the expand button.
             $('.expand a .open-menu').click(function(){
                 $(this).toggleClass('open');
@@ -64,9 +65,10 @@ function fdm_responsive_menu_sidrJS_options() {
 	<?php
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_sidrJS_options' );
+
 
 // menu button icon
+add_filter( 'wp_footer', 'fdm_responsive_menu_button_icon' );
 function fdm_responsive_menu_button_icon( $icon) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -80,9 +82,10 @@ function fdm_responsive_menu_button_icon( $icon) {
 	return $icon;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_button_icon' );
+
 
 // menu button text
+add_filter( 'wp_footer', 'fdm_responsive_menu_button_text' );
 function fdm_responsive_menu_button_text( $text ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -96,9 +99,10 @@ function fdm_responsive_menu_button_text( $text ) {
 	return $text;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_button_text' );
+
 
 // Menu Position
+add_action( 'wp_footer', 'fdm_responsive_menu_position' );
 function fdm_responsive_menu_position() {
 
 	$position = 'right';
@@ -112,9 +116,10 @@ function fdm_responsive_menu_position() {
 	}
     return $position;
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_position' );
+
 
 // Menu Displacement
+add_action( 'wp_footer', 'fdm_responsive_menu_displacement' );
 function fdm_responsive_menu_displacement() {
 
 	$displacement = false;
@@ -130,9 +135,10 @@ function fdm_responsive_menu_displacement() {
 	return $displacement;
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_displacement' );
+
 
 // Menu Selection
+add_action( 'wp_footer', 'fdm_responsive_menu_selection' );
 function fdm_responsive_menu_selection() {
 
 	$menu = 'default';
@@ -150,9 +156,10 @@ function fdm_responsive_menu_selection() {
 	wp_nav_menu( $args );
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_selection' );
+
 
 // FontAwesome
+add_action( 'wp_footer', 'fdm_responsive_menu_fontawesome' );
 function fdm_responsive_menu_fontawesome() {
 
 	$styles = false;
@@ -174,9 +181,10 @@ function fdm_responsive_menu_fontawesome() {
 	}
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_fontawesome' );
+
 
 // SIDR Renaming
+add_action( 'wp_footer', 'fdm_responsive_menu_sidr_renaming' );
 function fdm_responsive_menu_sidr_renaming() {
 
 	$renaming = false;
@@ -191,9 +199,10 @@ function fdm_responsive_menu_sidr_renaming() {
 
 	return $renaming;
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_sidr_renaming' );
+
 
 // Site Logo
+add_action( 'wp_footer', 'fdm_responsive_menu_site_logo' );
 function fdm_responsive_menu_site_logo( $url ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -207,9 +216,10 @@ function fdm_responsive_menu_site_logo( $url ) {
 	return $url;
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_site_logo' );
+
 
 // Icons
+add_filter( 'wp_footer', 'fdm_responsive_menu_icon' );
 function fdm_responsive_menu_icon( $icon ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -223,9 +233,10 @@ function fdm_responsive_menu_icon( $icon ) {
 	return $icon;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_icon' );
+
 
 // Icon Links
+add_action( 'wp_footer', 'fdm_responsive_menu_site_icon_links' );
 function fdm_responsive_menu_site_icon_links( $url ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -239,9 +250,10 @@ function fdm_responsive_menu_site_icon_links( $url ) {
 	return $url;
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_site_icon_links' );
+
 
 // Custom Link Icons
+add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link_icon' );
 function fdm_responsive_menu_custom_link_icon( $icon) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -255,9 +267,10 @@ function fdm_responsive_menu_custom_link_icon( $icon) {
 	return $icon;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link_icon' );
+
 
 // Custom Link
+add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link' );
 function fdm_responsive_menu_custom_link( $link ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -271,9 +284,10 @@ function fdm_responsive_menu_custom_link( $link ) {
 	return $link;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link' );
+
 
 // Custom Link Text
+add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link_text' );
 function fdm_responsive_menu_custom_link_text( $text ) {
 
 	$options = get_option( 'fdm_responsive_menu_options', fdm_responsive_menu_options_default() );
@@ -287,9 +301,10 @@ function fdm_responsive_menu_custom_link_text( $text ) {
 	return $text;
 
 }
-add_filter( 'wp_footer', 'fdm_responsive_menu_custom_link_text' );
+
 
 // Menu Button Color
+add_action( 'admin_head', 'fdm_responsive_menu_button_color' );
 function fdm_responsive_menu_button_color( $color ) {
 
 	$options = get_option( 'fdm_responsive_menu_style_options', fdm_responsive_menu_options_default() );
@@ -303,9 +318,10 @@ function fdm_responsive_menu_button_color( $color ) {
 	return $color;
 
 }
-add_action( 'admin_head', 'fdm_responsive_menu_button_color' );
+
 
 // Menu Background Color
+add_action( 'admin_head', 'fdm_responsive_menu_background_color' );
 function fdm_responsive_menu_background_color( $color ) {
 
 	$options = get_option( 'fdm_responsive_menu_style_options', fdm_responsive_menu_options_default() );
@@ -319,9 +335,10 @@ function fdm_responsive_menu_background_color( $color ) {
 	return $color;
 
 }
-add_action( 'admin_head', 'fdm_responsive_menu_background_color' );
+
 
 // Menu Link Color
+add_action( 'admin_head', 'fdm_responsive_menu_link_color' );
 function fdm_responsive_menu_link_color( $color ) {
 
 	$options = get_option( 'fdm_responsive_menu_style_options', fdm_responsive_menu_options_default() );
@@ -335,9 +352,10 @@ function fdm_responsive_menu_link_color( $color ) {
 	return $color;
 
 }
-add_action( 'admin_head', 'fdm_responsive_menu_link_color' );
+
 
 // Icon Link Color
+add_action( 'admin_head', 'fdm_responsive_icon_link_color' );
 function fdm_responsive_icon_link_color( $color ) {
 
 	$options = get_option( 'fdm_responsive_menu_style_options', fdm_responsive_menu_options_default() );
@@ -351,9 +369,10 @@ function fdm_responsive_icon_link_color( $color ) {
 	return $color;
 
 }
-add_action( 'admin_head', 'fdm_responsive_icon_link_color' );
+
 
 // Break Point
+add_action( 'wp_head', 'fdm_responsive_menu_break_point' );
 function fdm_responsive_menu_break_point( $breakpoint ) {
 
 	$options = get_option( 'fdm_responsive_menu_settings_options', fdm_responsive_menu_options_default() );
@@ -367,9 +386,10 @@ function fdm_responsive_menu_break_point( $breakpoint ) {
 	return $breakpoint;
 
 }
-add_action( 'wp_head', 'fdm_responsive_menu_break_point' );
+
 
 // Hide Main Menu
+add_action( 'wp_footer', 'fdm_responsive_menu_hide_main_menu', 99999 );
 function fdm_responsive_menu_hide_main_menu( $classID ) {
 
 	$options = get_option( 'fdm_responsive_menu_settings_options', fdm_responsive_menu_options_default() );
@@ -395,9 +415,10 @@ function fdm_responsive_menu_hide_main_menu( $classID ) {
     <?php
 
 }
-add_action( 'wp_footer', 'fdm_responsive_menu_hide_main_menu', 99999 );
+
 
 // Compile SCSS
+add_action( 'wp_head', 'compiled_scss' );
 function compiled_scss() {
 	global $scss;
 
@@ -486,4 +507,3 @@ function compiled_scss() {
 	echo '</style>';
 
 }
-add_action( 'wp_head', 'compiled_scss' );

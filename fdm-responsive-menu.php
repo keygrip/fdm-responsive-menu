@@ -3,7 +3,7 @@
 Plugin Name: Slide Out Sidebar Menu
 Plugin URI:   https://flyingdonutmedia.com
 Description: Customizable slide out sidebar navigation menu.
-Version: 1.2.0
+Version: 1.2.1
 Author: Flying Donut Media
 Author URI: https://flyingdonutmedia.com
 License: GPL-3.0
@@ -133,34 +133,40 @@ function fdm_sidebar_menu_shortcode() {
 	$nav_menu .= '<div class="close-menu"><i class="fa fa-times-circle"></i></div>';
 	$nav_menu .= $img_logo;
 	$nav_menu .= wp_nav_menu( array ( 'menu' => $selected_menu, 'echo' => false ) );
-	$nav_menu .= '<div class="icons">';
+	if( !empty ($option["fdm_social_link_1"]) ){
+		$nav_menu .= '<div class="icons">';
 
-	foreach ($option as $text_input => $val ){
-		if( substr( $text_input, 0, 16 ) == 'fdm_social_icon_') {
-			$nav_menu .= '<div class="icon icon-'.$i.'"><a href="'.$option["fdm_social_link_".$i].'"><i class="fa '.$option["fdm_social_icon_".$i].'"></i></a></div>';
-			$i++;
-		}
-	}
-
-	$nav_menu .= apply_filters( 'compiled_scss_filter', '' );
-	$nav_menu .= '</div><!--/icons-->';
-	$i = 1;
-	foreach ($option as $custom => $val ){
-
-		if( substr( $custom, 0, 16 ) == 'fdm_custom_link_') {
-
-			$custom_icon = $option['fdm_custom_link_icon_'.$i] ? $option['fdm_custom_link_icon_'.$i] : '';
-			$custom_link = $option['fdm_custom_link_'.$i] ? $option['fdm_custom_link_'.$i] : '';
-			$custom_text = $option['fdm_custom_link_text_'.$i] ? $option['fdm_custom_link_text_'.$i] : '';
-
-			if ($custom_icon || $custom_link || $custom_text) {
-				$nav_menu .= '<div class="custom-icon custom-icon-'.$i.'"><a href="'.$custom_link.'"><i class="fa '.$custom_icon.'"></i>'.$custom_text.'</a></div>';
-			} else {
-				$nav_menu .= '';
+		foreach ($option as $text_input => $val ){
+			if( substr( $text_input, 0, 16 ) == 'fdm_social_icon_') {
+				$nav_menu .= '<div class="icon icon-'.$i.'"><a href="'.$option["fdm_social_link_".$i].'"><i class="fa '.$option["fdm_social_icon_".$i].'"></i></a></div>';
+				$i++;
 			}
-			$i++;
+		}
+
+		$nav_menu .= apply_filters( 'compiled_scss_filter', '' );
+		$nav_menu .= '</div><!--/icons-->';
+	}
+
+	$i = 1;
+	if( !empty ($option["fdm_custom_link_1"]) ){
+		foreach ($option as $custom => $val ){
+
+			if( substr( $custom, 0, 16 ) == 'fdm_custom_link_') {
+
+				$custom_icon = $option['fdm_custom_link_icon_'.$i] ? $option['fdm_custom_link_icon_'.$i] : '';
+				$custom_link = $option['fdm_custom_link_'.$i] ? $option['fdm_custom_link_'.$i] : '';
+				$custom_text = $option['fdm_custom_link_text_'.$i] ? $option['fdm_custom_link_text_'.$i] : '';
+
+				if ($custom_icon || $custom_link || $custom_text) {
+					$nav_menu .= '<div class="custom-icon custom-icon-'.$i.'"><a href="'.$custom_link.'"><i class="fa '.$custom_icon.'"></i>'.$custom_text.'</a></div>';
+				} else {
+					$nav_menu .= '';
+				}
+				$i++;
+			}
 		}
 	}
+
 
 	$nav_menu .= '</div><!--/mobile-navigation-->';
 
